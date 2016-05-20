@@ -112,7 +112,7 @@ end
 ;--------------------------------------------------------------
 ;+
 ;NAME:
-;   inside_detector_circle, pix, marg
+;   inside_detector_circle
 ;
 ; PURPOSE:
 ;	This function checks is a pixel with given coordinates is inside a detector center circle. It is assumed that the detector is square.
