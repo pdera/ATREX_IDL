@@ -14,33 +14,68 @@ this routine, refer to the IDL Online Help Navigator
 or type: <P>
 <PRE>     ? mk_html_help</PRE><P>
 at the IDL command line prompt.<P>
-<STRONG>Last modified: </STRONG>Thu May 19 13:27:35 2016.<P>
+<STRONG>Last modified: </STRONG>Thu May 19 16:37:50 2016.<P>
  
 <HR>
  
 <A NAME="ROUTINELIST">
 <H1>List of Routines</H1></A>
 <UL>
-<LI><A HREF="#CALCULATE_SD_FROM_PIXELS, PIX, GONIO">
-CALCULATE_SD_FROM_PIXELS, PIX, GONIO</A>
-<LI><A HREF="#INSIDE_DETECTOR_CIRCLE, PIX, MARG">
-INSIDE_DETECTOR_CIRCLE, PIX, MARG</A>
+<LI><A HREF="#CALCULATE_PIXELS_FROM_SD">CALCULATE_PIXELS_FROM_SD</A>
+<LI><A HREF="#CALCULATE_SD_FROM_PIXELS">CALCULATE_SD_FROM_PIXELS</A>
+<LI><A HREF="#INSIDE_DETECTOR_CIRCLE">INSIDE_DETECTOR_CIRCLE</A>
 <LI><A HREF="#TILT_MTX">TILT_MTX</A>
 </UL><P>
  
 <HR>
  
 <H1>Routine Descriptions</H1>
-<A NAME="CALCULATE_SD_FROM_PIXELS, PIX, GONIO">
-<H2>CALCULATE_SD_FROM_PIXELS, PIX, GONIO</H2></A>
-<A HREF="#INSIDE_DETECTOR_CIRCLE, PIX, MARG">[Next Routine]</A>
+<A NAME="CALCULATE_PIXELS_FROM_SD">
+<H2>CALCULATE_PIXELS_FROM_SD</H2></A>
+<A HREF="#CALCULATE_SD_FROM_PIXELS">[Next Routine]</A>
 <A HREF="#ROUTINELIST">[List of Routines]</A>
 <PRE>
 NAME:
-   calculate_sd_from_pixels, pix, gonio
+   calculate_pixels_from_sd
 
  PURPOSE:
-	This function calculates coordinates of the diffracted beam unit vector from pixel coorginates at given goniometer position.
+   This function calculates coordinates of the diffracted beam unit vector from pixel coorginates at given goniometer position.
+
+ CATEGORY:
+   Detector geometry
+
+ CALLING SEQUENCE:
+   Result = object->calculate_pixels_from_sd(Sd, Gonio)
+
+ INPUTS:
+   Pix:    XY pixel coordinates
+   Gonio:  Goniometer position (6 angles, two of which desctibe detector position)
+      Gonio[0] = del
+      Gonio[1] = nu
+
+ OUTPUTS:
+   This function returns coordinates of the diffracted beam unit vector
+
+ COMMON BLOCKS:
+   Rota - used for rotation matrix algebra. Defined in vector_math
+
+ MODIFICATION HISTORY:
+   May 19, 2016 Automated Documentation capability added
+</PRE><P>
+<STRONG>(See class_adetector.pro)</STRONG><P>
+<HR>
+ 
+<A NAME="CALCULATE_SD_FROM_PIXELS">
+<H2>CALCULATE_SD_FROM_PIXELS</H2></A>
+<A HREF="#CALCULATE_PIXELS_FROM_SD">[Previous Routine]</A>
+<A HREF="#INSIDE_DETECTOR_CIRCLE">[Next Routine]</A>
+<A HREF="#ROUTINELIST">[List of Routines]</A>
+<PRE>
+NAME:
+   calculate_sd_from_pixels
+
+ PURPOSE:
+   This function calculates coordinates of the diffracted beam unit vector from pixel coorginates at given goniometer position.
 
  CATEGORY:
    Detector geometry
@@ -66,14 +101,14 @@ NAME:
 <STRONG>(See class_adetector.pro)</STRONG><P>
 <HR>
  
-<A NAME="INSIDE_DETECTOR_CIRCLE, PIX, MARG">
-<H2>INSIDE_DETECTOR_CIRCLE, PIX, MARG</H2></A>
-<A HREF="#CALCULATE_SD_FROM_PIXELS, PIX, GONIO">[Previous Routine]</A>
+<A NAME="INSIDE_DETECTOR_CIRCLE">
+<H2>INSIDE_DETECTOR_CIRCLE</H2></A>
+<A HREF="#CALCULATE_SD_FROM_PIXELS">[Previous Routine]</A>
 <A HREF="#TILT_MTX">[Next Routine]</A>
 <A HREF="#ROUTINELIST">[List of Routines]</A>
 <PRE>
 NAME:
-   inside_detector_circle, pix, marg
+   inside_detector_circle
 
  PURPOSE:
 	This function checks is a pixel with given coordinates is inside a detector center circle. It is assumed that the detector is square.
@@ -101,7 +136,7 @@ NAME:
  
 <A NAME="TILT_MTX">
 <H2>TILT_MTX</H2></A>
-<A HREF="#INSIDE_DETECTOR_CIRCLE, PIX, MARG">[Previous Routine]</A>
+<A HREF="#INSIDE_DETECTOR_CIRCLE">[Previous Routine]</A>
 <A HREF="#ROUTINELIST">[List of Routines]</A>
 <PRE>
 NAME:
